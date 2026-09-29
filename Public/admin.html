@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>BioCycle | Admin Dashboard</title>
+
+    <link rel="stylesheet" href="admin.css">
+
+</head>
+
+
+<body>
+
+<div class="admin-layout">
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-mark">♻</div>
+
+            <div>
+                <strong>BioCycle</strong>
+                <span>ADMIN PANEL</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="#dashboard" class="active">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="#users">
+                <span>♙</span>
+                Users
+            </a>
+
+            <a href="/main.html">
+                <span>↗</span>
+                View Website
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="admin-profile">
+
+                <div class="profile-avatar">
+                    A
+                </div>
+
+                <div>
+                    <strong>Administrator</strong>
+                    <span>System Admin</span>
+                </div>
+
+            </div>
+
+
+            <button
+                id="logoutButton"
+                class="logout-button"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- MAIN -->
+
+    <main class="admin-main">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <p class="eyebrow">
+                    BIOCYCLE CONTROL CENTER
+                </p>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <div class="status">
+
+                    <span class="status-dot"></span>
+
+                    System Online
+
+                </div>
+
+                <div class="date" id="currentDate"></div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- DASHBOARD -->
+
+        <section id="dashboard">
+
+
+            <!-- WELCOME -->
+
+            <div class="welcome-panel">
+
+                <div>
+
+                    <span class="welcome-label">
+                        ADMINISTRATOR ACCESS
+                    </span>
+
+                    <h2>
+                        Welcome to BioCycle.
+                    </h2>
+
+                    <p>
+                        Manage users, monitor the platform
+                        and review BioCycle system information
+                        from one place.
+                    </p>
+
+                </div>
+
+
+                <div class="welcome-icon">
+                    ♻
+                </div>
+
+            </div>
+
+
+
+            <!-- STATISTICS -->
+
+            <div class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ♙
+                    </div>
+
+                    <div>
+
+                        <span>
+                            TOTAL USERS
+                        </span>
+
+                        <strong id="totalUsers">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ●
+                    </div>
+
+                    <div>
+
+                        <span>
+                            USER ACCOUNTS
+                        </span>
+
+                        <strong id="normalUsers">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ★
+                    </div>
+
+                    <div>
+
+                        <span>
+                            ADMIN ACCOUNTS
+                        </span>
+
+                        <strong id="adminUsers">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ↗
+                    </div>
+
+                    <div>
+
+                        <span>
+                            PLATFORM
+                        </span>
+
+                        <strong>
+                            LIVE
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- USERS -->
+
+            <section
+                class="users-section"
+                id="users"
+            >
+
+                <div class="section-header">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            ACCOUNT MANAGEMENT
+                        </p>
+
+                        <h2>
+                            Registered Users
+                        </h2>
+
+                    </div>
+
+
+                    <button
+                        id="refreshUsers"
+                        class="refresh-button"
+                    >
+                        ↻ Refresh
+                    </button>
+
+                </div>
+
+
+
+                <div
+                    id="message"
+                    class="dashboard-message"
+                ></div>
+
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+
+                                <th>User</th>
+
+                                <th>Email</th>
+
+                                <th>Phone</th>
+
+                                <th>Role</th>
+
+                                <th>Registered</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="usersTable">
+
+                            <tr>
+
+                                <td
+                                    colspan="6"
+                                    class="loading"
+                                >
+                                    Loading users...
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SYSTEM -->
+
+            <section class="system-section">
+
+                <div class="system-card">
+
+                    <div class="system-icon">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <span class="eyebrow">
+                            DATABASE
+                        </span>
+
+                        <h3>
+                            BioCycle Database
+                        </h3>
+
+                        <p>
+                            SQLite database is connected
+                            through the Node.js backend.
+                        </p>
+
+                    </div>
+
+                    <span class="system-status">
+                        CONNECTED
+                    </span>
+
+                </div>
+
+
+                <div class="system-card">
+
+                    <div class="system-icon">
+                        ⚡
+                    </div>
+
+                    <div>
+
+                        <span class="eyebrow">
+                            SERVER
+                        </span>
+
+                        <h3>
+                            Express Backend
+                        </h3>
+
+                        <p>
+                            Authentication and API services
+                            are running through port 3000.
+                        </p>
+
+                    </div>
+
+                    <span class="system-status">
+                        ONLINE
+                    </span>
+
+                </div>
+
+            </section>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script>
+
+const token =
+    localStorage.getItem("biocycleToken");
+
+
+const usersTable =
+    document.getElementById("usersTable");
+
+const totalUsers =
+    document.getElementById("totalUsers");
+
+const normalUsers =
+    document.getElementById("normalUsers");
+
+const adminUsers =
+    document.getElementById("adminUsers");
+
+const message =
+    document.getElementById("message");
+
+
+
+/* DATE */
+
+document.getElementById("currentDate")
+    .textContent =
+    new Date().toLocaleDateString(
+        undefined,
+        {
+            day: "numeric",
+            month: "short",
+            year: "numeric"
+        }
+    );
+
+
+
+/* CHECK LOGIN */
+
+async function loadUsers() {
+
+    if (!token) {
+
+        window.location.href =
+            "/login";
+
+        return;
+
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/admin/users",
+                {
+                    headers: {
+                        "Authorization":
+                            `Bearer ${token}`
+                    }
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok || !data.success) {
+
+            if (response.status === 401 ||
+                response.status === 403) {
+
+                localStorage.removeItem(
+                    "biocycleToken"
+                );
+
+                window.location.href =
+                    "/login";
+
+                return;
+
+            }
+
+
+            throw new Error(
+                data.message ||
+                "Unable to load users."
+            );
+
+        }
+
+
+        const users =
+            data.users || [];
+
+
+        /* STATISTICS */
+
+        totalUsers.textContent =
+            users.length;
+
+        normalUsers.textContent =
+            users.filter(
+                user => user.role === "user"
+            ).length;
+
+        adminUsers.textContent =
+            users.filter(
+                user => user.role === "admin"
+            ).length;
+
+
+
+        /* TABLE */
+
+        if (users.length === 0) {
+
+            usersTable.innerHTML = `
+                <tr>
+                    <td colspan="6" class="empty">
+                        No registered users found.
+                    </td>
+                </tr>
+            `;
+
+            return;
+
+        }
+
+
+        usersTable.innerHTML =
+            users.map(user => `
+
+                <tr>
+
+                    <td>
+                        #${user.id}
+                    </td>
+
+                    <td>
+
+                        <div class="user-cell">
+
+                            <div class="user-avatar">
+                                ${getInitial(
+                                    user.name
+                                )}
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    ${escapeHTML(
+                                        user.name
+                                    )}
+                                </strong>
+
+                                <span>
+                                    ${user.role}
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+                    <td>
+                        ${escapeHTML(
+                            user.email || "—"
+                        )}
+                    </td>
+
+                    <td>
+                        ${escapeHTML(
+                            user.phone || "—"
+                        )}
+                    </td>
+
+                    <td>
+
+                        <span class="
+                            role-badge
+                            ${user.role}
+                        ">
+
+                            ${user.role}
+
+                        </span>
+
+                    </td>
+
+                    <td>
+                        ${formatDate(
+                            user.created_at
+                        )}
+                    </td>
+
+                </tr>
+
+            `).join("");
+
+    }
+
+
+    catch (error) {
+
+        console.error(error);
+
+        message.textContent =
+            error.message ||
+            "Could not connect to server.";
+
+        message.className =
+            "dashboard-message error";
+
+    }
+
+}
+
+
+
+/* HELPERS */
+
+function getInitial(name) {
+
+    return String(name || "?")
+        .charAt(0)
+        .toUpperCase();
+
+}
+
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+}
+
+
+function formatDate(value) {
+
+    if (!value) return "—";
+
+    const date =
+        new Date(
+            value.replace(" ", "T") + "Z"
+        );
+
+    if (Number.isNaN(date.getTime())) {
+        return value;
+    }
+
+    return date.toLocaleDateString(
+        undefined,
+        {
+            day: "2-digit",
+            month: "short",
+            year: "numeric"
+        }
+    );
+
+}
+
+
+
+/* REFRESH */
+
+document
+    .getElementById("refreshUsers")
+    .addEventListener(
+        "click",
+        loadUsers
+    );
+
+
+
+/* LOGOUT */
+
+document
+    .getElementById("logoutButton")
+    .addEventListener(
+        "click",
+        async () => {
+
+            try {
+
+                await fetch(
+                    "/api/logout",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Authorization":
+                                `Bearer ${token}`
+                        }
+                    }
+                );
+
+            } catch (error) {
+
+                console.error(error);
+
+            }
+
+            localStorage.removeItem(
+                "biocycleToken"
+            );
+
+            window.location.href =
+                "/login";
+
+        }
+    );
+
+
+
+/* START */
+
+loadUsers();
+
+</script>
+
+</body>
+</html>

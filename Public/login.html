@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>BioCycle | Login</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+
+        /* =====================================================
+           LOGIN MODE
+        ===================================================== */
+
+        .login-mode {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 6px;
+
+            padding: 5px;
+
+            background: var(--paper);
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            margin: 25px 0;
+
+        }
+
+
+        .mode-button {
+
+            border: none;
+
+            background: transparent;
+
+            color: var(--text-soft);
+
+            padding: 12px 10px;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            font-weight: 700;
+
+            font-size: 13px;
+
+            transition: .25s ease;
+
+        }
+
+
+        .mode-button:hover {
+
+            color: var(--green-700);
+
+        }
+
+
+        .mode-button.active {
+
+            background: white;
+
+            color: var(--green-900);
+
+            box-shadow:
+                0 4px 12px rgba(15,45,29,.08);
+
+        }
+
+
+        .mode-description {
+
+            font-size: 12px;
+
+            color: var(--text-soft);
+
+            margin-top: -12px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .admin-indicator {
+
+            display: none;
+
+            padding: 10px 12px;
+
+            margin-bottom: 18px;
+
+            border-radius: 10px;
+
+            background: var(--lime-light);
+
+            color: var(--green-800);
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+        }
+
+
+        .admin-indicator.show {
+
+            display: block;
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="auth-page">
+
+
+<main class="auth-container">
+
+
+    <!-- =====================================================
+         LEFT BRAND
+    ====================================================== -->
+
+    <section class="auth-brand">
+
+        <div class="brand-logo">
+            BioCycle
+        </div>
+
+
+        <div class="brand-content">
+
+            <p class="eyebrow">
+                SUSTAINABLE ENERGY • SDG PROJECT
+            </p>
+
+
+            <h1>
+                The resource
+                <span>comes back.</span>
+            </h1>
+
+
+            <p class="brand-description">
+
+                BioCycle demonstrates how organic waste
+                can become renewable energy through
+                circular resource recovery.
+
+            </p>
+
+        </div>
+
+
+        <div class="brand-footer">
+
+            ♻ Circular Economy
+            <span>•</span>
+            Renewable Energy
+            <span>•</span>
+            Sustainable Development
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         LOGIN PANEL
+    ====================================================== -->
+
+    <section class="auth-panel">
+
+        <div class="auth-box">
+
+
+            <div class="mobile-logo">
+                BioCycle
+            </div>
+
+
+            <p class="eyebrow">
+                WELCOME BACK
+            </p>
+
+
+            <h2>
+                Sign in
+            </h2>
+
+
+            <p class="auth-subtitle">
+                Access your BioCycle account.
+            </p>
+
+
+
+            <!-- =================================================
+                 LOGIN MODE
+            ================================================== -->
+
+            <div class="login-mode">
+
+                <button
+                    type="button"
+                    class="mode-button active"
+                    id="userMode"
+                >
+                    User
+                </button>
+
+
+                <button
+                    type="button"
+                    class="mode-button"
+                    id="adminMode"
+                >
+                    Administrator
+                </button>
+
+            </div>
+
+
+            <p
+                class="mode-description"
+                id="modeDescription"
+            >
+                Sign in to access the BioCycle platform.
+            </p>
+
+
+            <div
+                class="admin-indicator"
+                id="adminIndicator"
+            >
+                Administrator access selected.
+            </div>
+
+
+
+            <!-- =================================================
+                 FORM
+            ================================================== -->
+
+            <form id="loginForm">
+
+
+                <div class="form-group">
+
+                    <label for="identifier">
+                        Email or Phone
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="identifier"
+                        name="identifier"
+                        placeholder="Enter your email or phone"
+                        autocomplete="username"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+
+                    <div class="password-field">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+
+                        <button
+                            type="button"
+                            id="togglePassword"
+                            class="password-toggle"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <div
+                    id="loginMessage"
+                    class="form-message"
+                ></div>
+
+
+
+                <button
+                    type="submit"
+                    class="auth-button"
+                >
+                    Sign In
+                </button>
+
+            </form>
+
+
+
+            <div class="auth-divider">
+                <span>OR</span>
+            </div>
+
+
+            <p class="account-text">
+
+                Don't have an account?
+
+                <a href="/signup">
+                    Create account
+                </a>
+
+            </p>
+
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<script src="auth.js"></script>
+
+</body>
+
+</html>

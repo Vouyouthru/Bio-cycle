@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BioCycle | Calculator</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="nav-logo">BioCycle</div>
+
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <nav class="nav-links" id="mainNav">
+        <a href="/main.html">Home</a>
+        <a href="/problem.html">Problem</a>
+        <a href="/technology.html">Technology</a>
+        <a href="/calculator.html">Calculator</a>
+        <a href="/digital.html">Digital</a>
+        <a href="/impact.html">Impact</a>
+        <a href="/sdgs.html">SDGs</a>
+        <a href="/station.html">Station</a>
+    </nav>
+
+    <div class="nav-actions">
+        <span id="userName">User</span>
+        <button id="logoutButton">Logout</button>
+    </div>
+
+</header>
+
+
+<main>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="eyebrow">
+            BIOGAS CALCULATOR
+        </p>
+
+        <h1>
+            Turn your biomass
+            <span>into numbers.</span>
+        </h1>
+
+        <p class="hero-text">
+            Enter your daily feedstock quantity and
+            estimate potential biogas and energy output.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="calculator-box">
+
+        <div>
+
+            <p class="eyebrow">
+                DAILY FEEDSTOCK
+            </p>
+
+            <h2>
+                Estimate production
+            </h2>
+
+            <p>
+                Select a feedstock and enter the amount
+                available per day.
+            </p>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="feedstock">
+                Feedstock
+            </label>
+
+            <select id="feedstock">
+
+                <option value="0.04">
+                    Cattle Dung
+                </option>
+
+                <option value="0.06">
+                    Food Waste
+                </option>
+
+                <option value="0.05">
+                    Agricultural Waste
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="quantity">
+                Quantity (kg/day)
+            </label>
+
+            <input
+                type="number"
+                id="quantity"
+                value="25"
+                min="1"
+            >
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            id="calculateButton"
+        >
+            Calculate
+        </button>
+
+
+        <div class="stats-grid calculator-results">
+
+            <div class="stat">
+
+                <strong id="biogasResult">
+                    0 m³
+                </strong>
+
+                <span>
+                    Estimated biogas / day
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <strong id="energyResult">
+                    0 kWh
+                </strong>
+
+                <span>
+                    Estimated energy / day
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer class="footer">
+    <strong>BioCycle</strong>
+    <p>Estimate. Understand. Recover.</p>
+</footer>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
